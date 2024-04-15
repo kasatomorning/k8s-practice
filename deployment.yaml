@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: silverbullet-deployment
+  labels:
+    app: silverbullet
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: silverbullet
+  template:
+    metadata:
+      labels:
+        app: silverbullet
+    spec:
+      containers:
+      - name: silverbullet
+        image: zefhemel/silverbullet
+        env:
+#        - name: SB_USER
+#          value: "admin:adminpassword"
+        ports:
+        - containerPort: 3000
